@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "GitHub PR Link Copier",
+  "version": "1.0.4",
+  "description": "Copy GitHub pull requests and PR stacks as Markdown links with line diffs.",
+  "permissions": [
+    "clipboardWrite",
+    "https://github.com/*",
+    "https://patch-diff.githubusercontent.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*/*/pull/*"],
+      "js": ["core.js", "content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "github-pr-link-copy@example.com",
+      "strict_min_version": "142.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
+}
