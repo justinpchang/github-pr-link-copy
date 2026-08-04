@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "GitHub PR Link Copier",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Copy GitHub pull requests and PR stacks as Markdown links with line diffs.",
   "permissions": [
     "clipboardWrite",
@@ -18,7 +18,7 @@
   ],
   "browser_specific_settings": {
     "gecko": {
-      "id": "github-pr-link-copy@example.com",
+      "id": "github-pr-link-copy@justinpchang.github.io",
       "strict_min_version": "142.0",
       "data_collection_permissions": {
         "required": ["none"]
