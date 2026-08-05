@@ -12,12 +12,11 @@ Use **Copy PR link** for one PR. For GitHub Stacked PRs, open the stack map and 
 
 ## Install
 
-1. Download the `.xpi` from the latest release.
-2. Open `about:debugging#/runtime/this-firefox` in Firefox.
-3. Click **Load Temporary Add-on…** and select the `.xpi`.
-4. Reload an open GitHub PR.
+1. Download the signed `.xpi` from the [latest release](https://github.com/justinpchang/github-pr-link-copy/releases/latest).
+2. Open the downloaded file with Firefox.
+3. Confirm **Add** when Firefox prompts you, then reload any open GitHub PRs.
 
-The release is unsigned, so Firefox removes it after a browser restart. Permanent distribution requires Mozilla Add-ons signing.
+Releases are signed by Mozilla and remain installed after Firefox restarts. If opening the file does not prompt for installation, open `about:addons`, choose the gear menu, and select **Install Add-on From File…**.
 
 ## Develop
 
@@ -25,5 +24,7 @@ The release is unsigned, so Firefox removes it after a browser restart. Permanen
 node --test test.js
 zip -r github-pr-link-copy.xpi manifest.json core.js content.js content.css
 ```
+
+Load an unsigned development build from `about:debugging#/runtime/this-firefox` using **Load Temporary Add-on…**.
 
 GitHub Stacked PRs is currently in private preview. Binary files contribute zero changed text lines because unified diffs do not contain their contents.
