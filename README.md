@@ -12,19 +12,30 @@ Use **Copy PR link** for one PR. For GitHub Stacked PRs, open the stack map and 
 
 ## Install
 
-1. Download the signed `.xpi` from the [latest release](https://github.com/justinpchang/github-pr-link-copy/releases/latest).
-2. Open the downloaded file with Firefox.
-3. Confirm **Add** when Firefox prompts you, then reload any open GitHub PRs.
+### Firefox
 
-Releases are signed by Mozilla and remain installed after Firefox restarts. If opening the file does not prompt for installation, open `about:addons`, choose the gear menu, and select **Install Add-on From File…**.
+1. Download `github-pr-link-copy-firefox-<version>.xpi` from the [latest release](https://github.com/justinpchang/github-pr-link-copy/releases/latest).
+2. Open the downloaded file with Firefox and confirm **Add**.
+3. Reload any open GitHub PRs.
+
+Firefox releases are signed by Mozilla and stay installed after restarts. If opening the file doesn't prompt, use **Install Add-on From File…** in the gear menu at `about:addons`.
+
+### Chrome
+
+1. Download `github-pr-link-copy-chrome-<version>.zip` from the [latest release](https://github.com/justinpchang/github-pr-link-copy/releases/latest) and unzip it somewhere you'll keep it.
+2. Open `chrome://extensions` and turn on **Developer mode**.
+3. Click **Load unpacked** and select the unzipped folder.
+4. Reload any open GitHub PRs.
+
+Chrome keeps the extension across restarts, but loads it from that folder, so don't delete it. To update, replace the folder's contents and click the reload icon on the extension's card.
 
 ## Develop
 
 ```sh
 node --test test.js
-zip -r github-pr-link-copy.xpi manifest.json core.js content.js content.css
+node build.js
 ```
 
-Load an unsigned development build from `about:debugging#/runtime/this-firefox` using **Load Temporary Add-on…**.
+`build.js` writes the Firefox XPI and the Chrome zip to `dist/`. Load development builds with **Load Temporary Add-on…** at `about:debugging#/runtime/this-firefox`, or **Load unpacked** on `dist/chrome` in Chrome.
 
 GitHub Stacked PRs is currently in private preview. Binary files contribute zero changed text lines because unified diffs do not contain their contents.
