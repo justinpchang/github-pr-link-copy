@@ -63,19 +63,6 @@
     return `<a href="${escapeHtml(pr.url)}">${escapeHtml(label)} <code>+${pr.additions}/-${pr.deletions}</code></a>`;
   }
 
-  function extractStackPrNumbers(text, stackNumber) {
-    const numbers = [];
-    const seen = new Set();
-    for (const match of String(text).matchAll(/#(\d+)\b/g)) {
-      const number = Number(match[1]);
-      if (number !== stackNumber && !seen.has(number)) {
-        seen.add(number);
-        numbers.push(number);
-      }
-    }
-    return numbers;
-  }
-
   function collectPrObjects(value, result = [], seen = new Set()) {
     if (!value || typeof value !== "object" || seen.has(value)) return result;
     seen.add(value);
@@ -96,7 +83,6 @@
     collectPrObjects,
     countDiff,
     escapeMarkdownTitle,
-    extractStackPrNumbers,
     formatPr,
     formatPrHtml,
     parsePrUrl,

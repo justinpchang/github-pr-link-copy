@@ -59,7 +59,3 @@ test("finds nested PR data used by GitHub's stack payload", () => {
   assert.deepEqual(core.collectPrObjects(payload), [{ number: 2, title: "Second", url: null }]);
 });
 
-test("extracts PRs in displayed stack order and excludes the stack number", () => {
-  const text = "Stack #49634 Delivery: Hermes #49633 · branch Delivery: Olympus #49632 · branch main";
-  assert.deepEqual(core.extractStackPrNumbers(text, 49634), [49633, 49632]);
-});
